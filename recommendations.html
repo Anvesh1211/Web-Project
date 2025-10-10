@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations | Movie Tracker</title>
+  <link rel="stylesheet" href="css/recommendations.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🎬 MovieTracker</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="shows.html">Shows</a>
+      <a href="recommendations.html" class="active">Recommendations</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </nav>
+
+  <section class="content">
+    <h1>✨ Your Movie & Show Recommendations</h1>
+    <p class="subtitle">Add your favorite “If you liked X, you’ll love Y” combos.</p>
+
+    <div class="form-box">
+      <input type="text" id="liked" placeholder="If you liked..." />
+      <input type="text" id="suggested" placeholder="You'll like..." />
+      <textarea id="notes" placeholder="Add a note (optional)"></textarea>
+      <button id="addBtn">Add Recommendation</button>
+    </div>
+
+    <div class="list-box">
+      <h2>Your Recommendations</h2>
+      <ul id="recommendationItems"></ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MovieTracker | All Rights Reserved</p>
+  </footer>
+
+  <script src="js/recommendations.js"></script>
+</body>
+</html>
