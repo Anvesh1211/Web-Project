@@ -7,38 +7,91 @@
   <link rel="stylesheet" href="css/recommendations.css">
 </head>
 <body>
-  <nav class="navbar">
+  <!-- Navbar -->
+  <nav>
     <div class="logo">🎬 MovieTracker</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="movies.html">Movies</a>
-      <a href="shows.html">Shows</a>
-      <a href="recommendations.html" class="active">Recommendations</a>
-      <a href="profile.html">Profile</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="movies.html">Movies</a></li>
+      <li><a href="shows.html">Shows</a></li>
+      <li><a href="recommendations.html" class="active">Recommendations</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
   </nav>
 
-  <section class="content">
+  <!-- Main Content -->
+  <main>
     <h1>✨ Your Movie & Show Recommendations</h1>
     <p class="subtitle">Add your favorite “If you liked X, you’ll love Y” combos.</p>
 
-    <div class="form-box">
+    <!-- Input Card -->
+    <div class="input-card">
       <input type="text" id="liked" placeholder="If you liked..." />
-      <input type="text" id="suggested" placeholder="You'll like..." />
-      <textarea id="notes" placeholder="Add a note (optional)"></textarea>
-      <button id="addBtn">Add Recommendation</button>
+      <input type="text" id="recommend" placeholder="You'll like..." />
+      <textarea id="note" placeholder="Add a note (optional)"></textarea>
+      <button id="addRecBtn">Add Recommendation</button>
     </div>
 
-    <div class="list-box">
+    <!-- Recommendations Container -->
+    <div class="rec-container" id="recContainer">
       <h2>Your Recommendations</h2>
-      <ul id="recommendationItems"></ul>
     </div>
-  </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 MovieTracker | All Rights Reserved</p>
   </footer>
 
-  <script src="js/recommendations.js"></script>
+  <!-- JS -->
+  <script>
+    document.getElementById("addRecBtn").addEventListener("click", addRecommendation);
+
+    function addRecommendation() {
+      const liked = document.getElementById("liked").value;
+      const recommend = document.getElementById("recommend").value;
+      const note = document.getElementById("note").value;
+
+      if (!liked || !recommend) {
+        alert("Please fill in both fields!");
+        return;
+      }
+
+      const recCard = document.createElement("div");
+      recCard.className = "rec-card";
+      recCard.innerHTML = `
+        <h3>If you liked <span>${liked}</span>...</h3>
+        <p>You'll like <strong>${recommend}</strong></p>
+        ${note ? `<p><em>Note:</em> ${note}</p>` : ""}
+        <button class="edit-btn">✏️ Edit</button>
+        <button class="delete-btn">🗑️ Delete</button>
+      `;
+
+      document.getElementById("recContainer").appendChild(recCard);
+
+      // Clear inputs
+      document.getElementById("liked").value = "";
+      document.getElementById("recommend").value = "";
+      document.getElementById("note").value = "";
+
+      // Delete button
+      recCard.querySelector(".delete-btn").addEventListener("click", () => recCard.remove());
+
+      // Edit button
+      recCard.querySelector(".edit-btn").addEventListener("click", () => editRecommendation(recCard));
+    }
+
+    function editRecommendation(card) {
+      const likedText = card.querySelector("span").innerText;
+      const recommendText = card.querySelector("strong").innerText;
+      const noteText = card.querySelector("em") ? card.querySelector("em").parentNode.innerText.replace("Note:", "").trim() : "";
+
+      document.getElementById("liked").value = likedText;
+      document.getElementById("recommend").value = recommendText;
+      document.getElementById("note").value = noteText;
+
+      card.remove();
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+/* General dark theme */
+body {
+  background-color: #0d1117;
+  color: #e6edf3;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  text-align: center; /* centers text content */
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: center; /* center navbar links */
+  gap: 40px;
+  background: #161b22;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  font-size: 1.1rem;
+}
+
+nav a {
+  color: #e6edf3;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffae00;
+}
+
+/* Main section */
+main, section.main {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ffae00;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #9da5b4;
+  margin-bottom: 30px;
+}
+
+/* Input card */
+.input-card {
+  background: #161b22;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 0 auto 40px;
+  width: 80%;
+}
+
+.input-card input,
+.input-card textarea {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #0d1117;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.input-card button {
+  background-color: #ffae00;
+  color: #0d1117;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.input-card button:hover {
+  transform: scale(1.05);
+}
+
+/* Recommendation cards */
+.rec-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.rec-card {
+  background: #161b22;
+  padding: 25px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rec-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.rec-card h3 {
+  color: #ffae00;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.rec-card p {
+  color: #9da5b4;
+  font-size: 1rem;
+}
+
+/* Buttons inside cards */
+button.edit-btn,
+button.delete-btn {
+  background: transparent;
+  border: 1px solid #ffae00;
+  color: #ffae00;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button.delete-btn {
+  border-color: #ff4c4c;
+  color: #ff4c4c;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #161b22;
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #9da5b4;
+}
